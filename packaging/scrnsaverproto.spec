@@ -5,14 +5,10 @@ Release:  1
 Group:    Development/System
 License:  MIT
 URL:      http://www.x.org
-Source0:  %{name}-%{version}.tar.gz
-Provides: scrnsaverproto
+Source0:  %{name}-%{version}.tar.bz2
 
 BuildRequires: pkgconfig
 BuildRequires: pkgconfig(xorg-macros)
-
-# some file to be intalled can be ignored when rpm generates packages
-%define _unpackaged_files_terminate_build 0
 
 %description
 Description: %{summary}
@@ -31,13 +27,10 @@ Description: %{summary}
 make %{?jobs:-j%jobs}
 
 %install
-rm -rf %{buildroot}
 %make_install
 
 %remove_docs
 
-%clean
-rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
